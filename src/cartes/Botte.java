@@ -10,7 +10,7 @@ public class Botte extends Probleme{
 	public String toString() {
 		String nom;
 		if (getType() == Type.FEU) {
-			nom = "VéhiculePrioritaire";
+			nom = "Vï¿½hiculePrioritaire";
 		}
 		
 		else if (getType() == Type.ESSENCE) {
@@ -24,7 +24,7 @@ public class Botte extends Probleme{
 			nom = "AsDuVolant";
 		}
 		
-		return "Botte [" + nom + "]";
+		return nom;
 	}
 	
 }

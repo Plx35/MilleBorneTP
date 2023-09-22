@@ -26,7 +26,7 @@ public class Attaque extends Bataille{
 			nom = "Accident";
 		}
 		
-		return "Attaque [" + nom + "]";
+		return nom;
 	}
 	
 }

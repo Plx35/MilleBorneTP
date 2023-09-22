@@ -33,6 +33,18 @@ public class Sabot {
 		nbCartes++;
 	}
 	
+	/*public void ajouterFamilleCarte(Carte c) {
+		for(int i = 0; i < c.getNombre(); i++) {
+			ajouterCarte(c);
+		}
+	}*/
 	
+	public void ajouterFamilleCarte(Carte[] c) {
+		for(int i = 0; i < c.length; i++) {
+			for(int j = 0; j < c[i].getNombre(); j++) {
+				ajouterCarte(c[i]);
+			}
+		}
+	}
 	
 }

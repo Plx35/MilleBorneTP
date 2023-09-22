@@ -23,10 +23,10 @@ public class Parade extends Bataille{
 		}
 		
 		else {
-			nom = "Réparation";
+			nom = "RÃ©paration";
 		}
 		
-		return "Parade [" + nom + "]";
+		return nom;
 	}
 	
 }
