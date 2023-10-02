@@ -10,7 +10,7 @@ public class Botte extends Probleme{
 	public String toString() {
 		String nom;
 		if (getType() == Type.FEU) {
-			nom = "V�hiculePrioritaire";
+			nom = "VehiculePrioritaire";
 		}
 		
 		else if (getType() == Type.ESSENCE) {

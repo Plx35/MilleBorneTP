@@ -23,7 +23,7 @@ public class Parade extends Bataille{
 		}
 		
 		else {
-			nom = "Réparation";
+			nom = "Reparation";
 		}
 		
 		return nom;
