@@ -12,18 +12,18 @@ public class Parade extends Bataille{
 		String nom;
 		
 		if (getType() == Type.FEU) {
-			nom = "FeuVert";
+			nom = " FeuVert";
 		}
 		
 		else if (getType() == Type.ESSENCE) {
-			nom = "Essence";
+			nom = " Essence";
 		}
 		else if (getType() == Type.CREVAISON) {
-			nom = "RoueDeSecours";
+			nom = " RoueDeSecours";
 		}
 		
 		else {
-			nom = "Reparation";
+			nom = " Reparation";
 		}
 		
 		return nom;

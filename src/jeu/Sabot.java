@@ -9,6 +9,7 @@ public class Sabot implements Iterable<Carte>{
 	
 	private Carte[] paquet;
 	private int nbCartes;
+	private int nombreOperations = 0;
 	
 	public Sabot() {
 		this.paquet = new Carte[110];
@@ -22,7 +23,7 @@ public class Sabot implements Iterable<Carte>{
 		
 		private int indiceIter;
 		private boolean nextEffectue = false;
-		
+		private int nombreOperationsReference = nombreOperations;
 		
 		@Override
 		public boolean hasNext() {
@@ -44,6 +45,7 @@ public class Sabot implements Iterable<Carte>{
 		
 		@Override
 		public void remove() {
+			verificationConcurrence();
 			if (nbCartes < 1 || !nextEffectue) {
 				throw new IllegalStateException();
 			}
@@ -53,7 +55,15 @@ public class Sabot implements Iterable<Carte>{
 			nextEffectue = false;
 			indiceIter--;
 			nbCartes--;
+			nombreOperations++;
+			nombreOperationsReference++;
 		}
+		
+		private void verificationConcurrence(){
+			if (nombreOperations != nombreOperationsReference)
+				throw new ConcurrentModificationException();
+		}
+
 	}
 	
 	@Override
@@ -73,6 +83,7 @@ public class Sabot implements Iterable<Carte>{
 		}
 		paquet[nbCartes] = c;
 		nbCartes++;
+		nombreOperations++;
 	}
 	
 	/*public void ajouterFamilleCarte(Carte c) {

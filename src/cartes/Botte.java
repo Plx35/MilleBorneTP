@@ -14,14 +14,14 @@ public class Botte extends Probleme{
 		}
 		
 		else if (getType() == Type.ESSENCE) {
-			nom = "Citerne";
+			nom = " Citerne";
 		}
 		else if (getType() == Type.CREVAISON) {
-			nom = "Increvable";
+			nom = " Increvable";
 		}
 		
 		else {
-			nom = "AsDuVolant";
+			nom = " AsDuVolant";
 		}
 		
 		return nom;
