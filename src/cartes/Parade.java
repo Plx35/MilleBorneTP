@@ -29,4 +29,12 @@ public class Parade extends Bataille{
 		return nom;
 	}
 	
+	public boolean equals(Object o) {
+		if(o instanceof Parade) {
+			Parade parade = (Parade) o;
+			return getType().equals(parade.getType());
+		}
+		return false;
+	}
+	
 }

@@ -18,4 +18,13 @@ public class Borne extends Carte{
 		return "Borne [" + km + "]";
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Borne) {
+			Borne borne = (Borne) o;
+			return km == borne.km;
+		}
+		return false;
+	}
+	
 }

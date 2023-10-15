@@ -6,6 +6,7 @@ public class Attaque extends Bataille{
 		super(n, t);
 	}
 	
+	
 	@Override
 	public String toString() {
 		
@@ -27,6 +28,15 @@ public class Attaque extends Bataille{
 		}
 		
 		return nom;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Attaque) {
+			Attaque attaque = (Attaque) o;
+			return getType().equals(attaque.getType());
+		}
+		return false;
 	}
 	
 }

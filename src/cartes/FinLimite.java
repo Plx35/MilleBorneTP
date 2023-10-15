@@ -10,4 +10,13 @@ public class FinLimite extends Limite{
 		return " FinLimite";
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Limite) {
+			Limite limite = (Limite) o;
+			return toString().equals(limite.toString());
+		}
+		return false;
+	}
+	
 }

@@ -27,4 +27,13 @@ public class Botte extends Probleme{
 		return nom;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Botte) {
+			Botte botte = (Botte) o;
+			return getType().equals(botte.getType());
+		}
+		return false;
+	}
+	
 }
