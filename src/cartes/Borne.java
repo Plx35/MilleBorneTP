@@ -1,9 +1,9 @@
 package cartes;
 
-public class Borne extends Carte{
-	
+public class Borne extends Carte {
+
 	private int km;
-	
+
 	public Borne(int n, int km) {
 		super(n);
 		this.km = km;
@@ -17,14 +17,14 @@ public class Borne extends Carte{
 	public String toString() {
 		return "Borne [" + km + "]";
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
-		if(o instanceof Borne) {
+		if (o instanceof Borne) {
 			Borne borne = (Borne) o;
 			return km == borne.km;
 		}
 		return false;
 	}
-	
+
 }

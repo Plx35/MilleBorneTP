@@ -1,12 +1,12 @@
 package cartes;
 
 public abstract class Carte {
-	
+
 	private int nombre;
 
-	public Carte(int n) {
+	public Carte(int nombre) {
 		super();
-		this.nombre = n;
+		this.nombre = nombre;
 	}
 
 	public int getNombre() {

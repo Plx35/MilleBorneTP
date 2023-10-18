@@ -22,7 +22,7 @@ public class Test2 {
 		DebutLimite lim = new DebutLimite(1);
 		DebutLimite lim2 = new DebutLimite(1);
 		FinLimite lim3 = new FinLimite(1);
-		
+
 		System.out.println(att.equals(att2));
 		System.out.println(att.equals(att3));
 		System.out.println(att.equals(borne));
