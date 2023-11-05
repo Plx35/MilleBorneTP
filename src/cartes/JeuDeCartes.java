@@ -1,6 +1,8 @@
 package cartes;
 
 import cartes.Probleme.Type;
+import utils.Utils;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -22,6 +24,7 @@ public class JeuDeCartes {
 				listeCartes.add(c);
 			}
 		}
+		listeCartes = Utils.melanger(listeCartes);
 	}
 
 	public List<Carte> getListeCartes() {

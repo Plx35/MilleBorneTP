@@ -1,13 +1,14 @@
 package utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Random;
 
 public class Utils<E> {
 
-	public E extraire(List<E> liste) {
+	public static <E> E extraire(List<E> liste) {
 		Random rand = new Random();
 		int index = rand.nextInt(liste.size());
 		E e = liste.get(index);
@@ -16,7 +17,7 @@ public class Utils<E> {
 		
 	}
 	
-	public E extraireV2(List<E> liste) {
+	public static <E> E extraireV2(List<E> liste) {
 		Random rand = new Random();
 		int index = rand.nextInt(liste.size());
 		E e = liste.get(0);
@@ -27,7 +28,7 @@ public class Utils<E> {
 		return e; 
 	}
 	
-	public List<E> melanger(List<E> liste){
+	public static <E> List<E> melanger(List<E> liste){
 		int size = liste.size();
 		List<E> listeMelanger = new ArrayList<>();
 		for (int i = 0; i < size; i++) {
@@ -35,5 +36,35 @@ public class Utils<E> {
 		}
 		return listeMelanger;
 	}
+	
+	public static <E> boolean verifierMelange(List<E> liste1, List<E> liste2) {
+		for(int i = 0; i < liste1.size(); i++) {
+			if (Collections.frequency(liste2, liste1.get(i)) 
+					!= Collections.frequency(liste1, liste1.get(i))) {
+				return false;
+			}
+			
+		}
+		return true;
+	}
+	
+	public static <E> List<E> rassembler(List<E> liste) {
+		List<E> liste2 = new ArrayList<>();
+		for(int i = 0; i < liste.size(); i++) {
+			E elem = liste.get(i);
+			if(!liste2.contains(elem)) {
+				int num = Collections.frequency(liste, elem);
+				for(int j = 0; j < num; j++) {
+					liste2.add(elem);
+				}
+			}
+		}
+		return liste2;
+	}
+	
+	public static <E> boolean verifierRassemblement(List<E> liste) {
+		return liste.equals(rassembler(liste));
+	}
+	
 	
 }
