@@ -38,7 +38,7 @@ public class Utils<E> {
 	}
 	
 	public static <E> boolean verifierMelange(List<E> liste1, List<E> liste2) {
-		for(int i = 0; i < liste1.size(); i++) {
+		for(int i = 0; i < liste2.size(); i++) {
 			if (Collections.frequency(liste2, liste1.get(i)) 
 					!= Collections.frequency(liste1, liste1.get(i))) {
 				return false;

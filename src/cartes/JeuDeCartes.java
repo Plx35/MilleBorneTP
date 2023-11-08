@@ -31,6 +31,10 @@ public class JeuDeCartes {
 		return listeCartes;
 	}
 	
+	public Carte[] getTypeCarte() {
+		return typesDeCartes;
+	}
+	
 	public boolean checkCount() {
 		if (listeCartes.size() != 106) {
 			return false;
