@@ -2,8 +2,8 @@ package cartes;
 
 public class FinLimite extends Limite {
 
-	public FinLimite(int n) {
-		super(n);
+	public FinLimite(int nombre) {
+		super(nombre);
 	}
 
 	@Override

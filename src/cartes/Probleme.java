@@ -8,9 +8,9 @@ public abstract class Probleme extends Carte {
 
 	private Type type;
 
-	public Probleme(int n, Type t) {
-		super(n);
-		this.type = t;
+	public Probleme(int nombre, Type type) {
+		super(nombre);
+		this.type = type;
 	}
 
 	public Type getType() {

@@ -2,8 +2,8 @@ package cartes;
 
 public class Botte extends Probleme {
 
-	public Botte(int n, Type t) {
-		super(n, t);
+	public Botte(int nombre, Type type) {
+		super(nombre, type);
 	}
 
 	@Override

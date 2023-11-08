@@ -2,11 +2,15 @@ package utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Random;
 
-public class Utils<E> {
+public class Utils {
+	private Utils() {
+		
+	}
 
 	public static <E> E extraire(List<E> liste) {
 		Random rand = new Random();
@@ -62,8 +66,30 @@ public class Utils<E> {
 		return liste2;
 	}
 	
+	public static <E> boolean searchElem(List<E> liste, E cur, int indice) {
+		for(ListIterator<E> it = liste.listIterator(indice); it.hasNext();) {
+			E e = it.next();
+			if(e.equals(cur)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public static <E> boolean verifierRassemblement(List<E> liste) {
-		return liste.equals(rassembler(liste));
+		E precedent = liste.get(0);
+		E current;
+		
+		for(Iterator<E> it = liste.iterator(); it.hasNext();) {
+			current = it.next();
+			if(!current.equals(precedent) 
+					&& (searchElem(liste, precedent, liste.indexOf(current)))) {
+					return false;
+				
+			}
+			precedent = current;
+		}
+		return true;
 	}
 	
 	

@@ -1,13 +1,12 @@
 package jeu;
 
-import java.util.NavigableSet;
-import java.util.Objects;
-import java.util.TreeSet;
+import java.util.Set;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 import cartes.*;
+import cartes.Probleme.Type;
 
 public class Joueur {
 	
@@ -15,35 +14,27 @@ public class Joueur {
 	private List<Limite> limites = new ArrayList<>();
 	private List<Bataille> batailles = new ArrayList<>();
 	private List<Borne> bornes = new ArrayList<>();
-	private NavigableSet<Botte> bottes = 
-			new TreeSet<>(
-					new Comparator<Botte>() {
-						public int compare(Botte b1, Botte b2) {
-							String nomB1 = b1.toString();
-							String nomB2 =b2.toString();
-							return nomB1.compareTo(nomB2);
-						}
-					}
-			);
+	private Set<Botte> bottes = new HashSet<>();
 	private String nom;
+	private MainAsListe mainJoueur = new MainAsListe();
 	
 	public Joueur(String nom) {
 		this.nom = nom;
 	}
 	
-	public List<Limite> getLimite() {
+	public List<Limite> getLimites() {
 		return limites;
 	}
 	
-	public List<Bataille> getBataille() {
+	public List<Bataille> getBatailles() {
 		return batailles;
 	}
 	
-	public List<Borne> getBorne() {
+	public List<Borne> getBornes() {
 		return bornes;
 	}
 
-	public NavigableSet<Botte> getBottes() {
+	public Set<Botte> getBottes() {
 		return bottes;
 	}
 
@@ -51,10 +42,13 @@ public class Joueur {
 		return nom;
 	}
 
+	public MainAsListe getMainJoueur() {
+		return mainJoueur;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Joueur) {
-			Joueur joueur = (Joueur) obj;
+		if(obj instanceof Joueur joueur) {
 			return getNom().equals(joueur.getNom());
 		}
 		return false;
@@ -64,4 +58,37 @@ public class Joueur {
 	public String toString() {
 		return "Joueur [nom=" + nom + "]";
 	}
+	
+	public void donner(Carte c) {
+		mainJoueur.main.add(c);
+	}
+	
+	public Carte prendreCarte(List<Carte> sabot) {
+		if(sabot.isEmpty()) {
+			return null;
+		}
+		Carte c = sabot.get(0);
+		donner(c);
+		return c;
+	}
+	
+	public int getKM() {
+		int km = 0;
+		for(Borne borne : bornes) {
+			km += borne.getKm();
+		}
+		return km; 
+	}
+	
+	public int getLimite() {
+		int limite = 50;
+	
+		if(bottes.contains(new Botte(1, Type.FEU)) || limites.isEmpty() || 
+				limites.get(limites.size()) instanceof FinLimite) {
+			limite = 200;
+		}
+		return limite;
+	}
+	
+	
 }

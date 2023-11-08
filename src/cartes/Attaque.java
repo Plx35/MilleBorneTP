@@ -2,8 +2,8 @@ package cartes;
 
 public class Attaque extends Bataille {
 
-	public Attaque(int n, Type t) {
-		super(n, t);
+	public Attaque(int nombre, Type type) {
+		super(nombre, type);
 	}
 
 	@Override
@@ -34,8 +34,7 @@ public class Attaque extends Bataille {
 
 	@Override
 	public boolean equals(Object o) {
-		if (o instanceof Attaque) {
-			Attaque attaque = (Attaque) o;
+		if (o instanceof Attaque attaque) {
 			return getType().equals(attaque.getType());
 		}
 		return false;

@@ -1,7 +1,9 @@
 package jeu;
 
-public interface Main {
+import cartes.*;
+
+public interface Main extends Iterable<Carte>{
 	
-	public void prendre();
-	public void jouer();
+	public void prendre(Carte c);
+	public void jouer(Carte c);
 }

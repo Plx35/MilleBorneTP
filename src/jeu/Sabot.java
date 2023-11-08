@@ -32,6 +32,7 @@ public class Sabot implements Iterable<Carte> {
 
 		@Override
 		public Carte next() {
+			verificationConcurrence();
 			if (hasNext()) {
 				Carte cartes = paquet[indiceIter];
 				indiceIter++;
