@@ -82,10 +82,19 @@ public class Joueur {
 	
 	public int getLimite() {
 		int limite = 50;
-	
-		if(bottes.contains(new Botte(1, Type.FEU)) || limites.isEmpty() || 
-				limites.get(limites.size()) instanceof FinLimite) {
-			limite = 200;
+		
+		if(!bottes.isEmpty()) {
+			for(Botte b : bottes) {
+				if(b.getType() == Type.FEU) {
+					limite = 200;
+				}
+			}
+		}
+		
+		else if(!limites.isEmpty()) {
+			if (limites.get(limites.size() - 1) instanceof FinLimite) {
+				limite = 200;
+			}
 		}
 		return limite;
 	}
