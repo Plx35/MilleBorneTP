@@ -12,5 +12,11 @@ public abstract class Carte {
 	public int getNombre() {
 		return nombre;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		return o != null && o.getClass() == getClass(); 
+	}
+	
 
 }

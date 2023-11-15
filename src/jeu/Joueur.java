@@ -67,7 +67,8 @@ public class Joueur {
 		if(sabot.isEmpty()) {
 			return null;
 		}
-		Carte c = sabot.get(0);
+		Carte c = sabot.get(sabot.size() - 1);
+		sabot.remove(c);
 		donner(c);
 		return c;
 	}
@@ -81,23 +82,62 @@ public class Joueur {
 	}
 	
 	public int getLimite() {
-		int limite = 50;
+		int limite = 200;
 		
 		if(!bottes.isEmpty()) {
 			for(Botte b : bottes) {
 				if(b.getType() == Type.FEU) {
-					limite = 200;
+					return limite;
 				}
 			}
 		}
 		
 		else if(!limites.isEmpty()) {
-			if (limites.get(limites.size() - 1) instanceof FinLimite) {
-				limite = 200;
+			if (limites.get(limites.size() - 1) instanceof DebutLimite) {
+				limite = 50;
 			}
 		}
 		return limite;
 	}
+	
+	public boolean estBloque() {
+		Bataille sommet;
+		Botte Prioritaire = new Botte(1, Type.FEU);
+		Attaque feuRouge = new Attaque(1, Type.FEU);
+		Parade feuVert = new Parade(1, Type.FEU);
+		boolean isPrioritaire = bottes.contains(Prioritaire);
+		if(batailles.isEmpty() && isPrioritaire) {
+			return false;
+		}
+		
+		else if(!batailles.isEmpty()) {
+			sommet = batailles.get(batailles.size() - 1);
+			Botte botteSommet = new Botte(1, sommet.getType());
+			if(sommet.equals(feuVert)) {
+				return false;
+			}
+			
+			if(isPrioritaire) {
+				if(sommet.equals(feuRouge)) {
+					return false;
+				}
+				
+				else if(sommet instanceof Parade) {
+					return false;
+				}
+				
+				else if(sommet instanceof Attaque && bottes.contains(botteSommet)) {
+					return false;
+				}
+			}
+			
+		}
+		
+		
+		
+		return true;
+	}
+	
 	
 	
 }

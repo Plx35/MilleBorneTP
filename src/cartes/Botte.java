@@ -34,5 +34,10 @@ public class Botte extends Probleme {
 		}
 		return false;
 	}
+	
+	@Override
+	public int hashCode() {
+		return super.getType().hashCode()*31;
+	}
 
 }

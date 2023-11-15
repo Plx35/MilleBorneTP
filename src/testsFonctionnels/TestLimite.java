@@ -14,13 +14,12 @@ public class TestLimite {
 		List<Limite> lims = joueur.getLimites();
 		Set<Botte> botts = joueur.getBottes();
 		Botte b1 = new Botte(1, Type.FEU);
-		botts.add(b1);
-		System.out.println(joueur.getLimite());
-		botts.remove(b1);
-		System.out.println(joueur.getLimite());
 		DebutLimite deb1 = new DebutLimite(1);
 		FinLimite Fin1 = new FinLimite(1);
+		botts.add(b1);
 		lims.add(deb1);
+		System.out.println(joueur.getLimite());
+		botts.remove(b1);
 		System.out.println(joueur.getLimite());
 		joueur.getLimites().add(Fin1);
 		System.out.println(joueur.getLimite());
