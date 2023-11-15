@@ -14,28 +14,28 @@ public class TestBloque {
 		List<Bataille> batailles = joueur.getBatailles();
 		Set<Botte> bottes = joueur.getBottes();
 		
-		Attaque a1 = new Attaque(1, Type.FEU);
-		Attaque a2 = new Attaque(1, Type.ACCIDENT);
-		Attaque a3 = new Attaque(1, Type.ESSENCE);
-		Parade p1 = new Parade(1, Type.FEU);
-		Parade p2 = new Parade(1, Type.ESSENCE);
-		Botte b1 = new Botte(1, Type.FEU);
-		Botte b2 = new Botte(1, Type.ACCIDENT);
+		Attaque feuRouge = new Attaque(1, Type.FEU);
+		Attaque accident = new Attaque(1, Type.ACCIDENT);
+		Attaque panneEssence = new Attaque(1, Type.ESSENCE);
+		Parade feuVert = new Parade(1, Type.FEU);
+		Parade essence = new Parade(1, Type.ESSENCE);
+		Botte vehiculePrio = new Botte(1, Type.FEU);
+		Botte asDuVolant = new Botte(1, Type.ACCIDENT);
 		
 		System.out.println(joueur.estBloque());
-		batailles.add(p1);
+		batailles.add(feuVert);
 		System.out.println(joueur.estBloque());
-		batailles.add(a1);
+		batailles.add(feuRouge);
 		System.out.println(joueur.estBloque());
-		bottes.add(b1);
+		bottes.add(vehiculePrio);
 		System.out.println(joueur.estBloque());
-		batailles.add(a2);
+		batailles.add(accident);
 		System.out.println(joueur.estBloque());
-		bottes.add(b2);
+		bottes.add(asDuVolant);
 		System.out.println(joueur.estBloque());
-		batailles.add(a3);
+		batailles.add(panneEssence);
 		System.out.println(joueur.estBloque());
-		batailles.add(p2);
+		batailles.add(essence);
 		System.out.println(joueur.estBloque());
 				
 
